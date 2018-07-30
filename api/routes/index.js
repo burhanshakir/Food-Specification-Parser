@@ -5,7 +5,7 @@ var ctrlParser = require('../controllers/foodSpecParser.controller.js');
 
 router
   .route('/foodspec')
-  .get(ctrlParser.foodAddAll);
+  .post(ctrlParser.foodAddAll);
 
 
 module.exports = router;
