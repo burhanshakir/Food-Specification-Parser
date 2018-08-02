@@ -3,7 +3,7 @@ var formidable = require('formidable'),
     util = require('util');
 
 
-module.exports.foodAddAll = function(req, res){
+module.exports.foodSpecParse = function(req, res){
   console.log('Received your file!');
 
   var form = new formidable.IncomingForm();
@@ -60,7 +60,7 @@ var getDataFromPdf = function(path, response){
           for(var j = 0; j < pdfData.formImage.Pages[i].Texts.length; j++){
 
             // Cleaning up each text line to remove redundant/useless characters
-            texts.push(decodeURIComponent(pdfData.formImage.Pages[i].Texts[j].R[0].T).toLowerCase().trim().replace(/[^a-zA-Z0-9. ]/g, ""));
+            texts.push(decodeURIComponent(pdfData.formImage.Pages[i].Texts[j].R[0].T).toLowerCase().trim().replace(/[^a-zA-Z0-9./ ]/g, ""));
           }
         }
 
