@@ -1,4 +1,4 @@
-var dbconfig = require('data/dbconfig');
+var dbconfig = require('../data/dbconfig.js');
 
 const { Pool, Client } = require('pg')
 
