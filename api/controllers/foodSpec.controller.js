@@ -1,6 +1,14 @@
 const { Pool, Client } = require('pg')
 var dbconfig = require('../data/dbconfig.js');
 
+const pool = new Pool({
+  user: dbconfig.username,
+  host: 'localhost',
+  database: 'profcal_foodspec',
+  password: dbconfig.password,
+  port: 5432,
+})
+
 module.exports.foodSpecUpload = function(req, res)
 {
       console.log('Received your data!');
@@ -30,14 +38,6 @@ module.exports.foodSpecUpload = function(req, res)
       const insertQuery = 'INSERT INTO food_items(name,description,weight,ingredients,temperature,energy,fat,saturates,monounsaturates,trans_fat,carbohydrates,sugars,polyols,starch,fibre,protein,salt,sodium) values($1,$2,$3, $4, $5, $6, $7, $8, $9, $10, $11, $12,$13, $14,$15, $16, $17, $18 ) RETURNING *';
       const values = [name,desc,weight,ingredients,temperature,energy,fat,saturates,monounsaturates,trans_fat,carbohydrates,sugars,polyols,starch,fibre,protein,salt,sodium];
 
-      const pool = new Pool({
-        user: dbconfig.username,
-        host: 'localhost',
-        database: 'profcal_foodspec',
-        password: dbconfig.password,
-        port: 5432,
-      })
-
       pool.query(insertQuery, values, (err, result) => {
         // console.log(err, result)
 
@@ -56,6 +56,65 @@ module.exports.foodSpecUpload = function(req, res)
         }
         pool.end()
       })
+}
+
+
+module.exports.foodSpecGetAll = function(req, res){
+
+  console.log("Sending you names of foods wee have!");
+
+  const selectQuery = 'SELECT id, name from food_items';
+
+  pool.query(selectQuery)
+  .then(result => {
+
+    console.log(result.rows)
+
+    res.status(200)
+            .json( {"food_items" : result.rows});
+
+  })
+  .catch(e => {
+    console.error(e.stack)
+
+    res.status(400)
+            .json({"message" : "Error Sending Data"});
+
+
+  })
+
+}
+
+
+module.exports.foodSpecGetOne = function(req, res){
+
+  var id = req.params.id;
+
+  const query = {
+    // give the query a unique name
+    name: 'fetch-food-item',
+    text: 'SELECT * FROM food_items WHERE id = $1',
+    values: [id]
+  }
+
+  pool.query(query)
+  .then(result => {
+
+    console.log(result.rows[0])
+
+    res.status(200)
+            .json(result.rows[0]);
+
+  })
+  .catch(e => {
+    console.error(e.stack)
+
+    res.status(400)
+            .json({"message" : "Error Sending Data"});
+
+
+  })
+
 
 
 }
