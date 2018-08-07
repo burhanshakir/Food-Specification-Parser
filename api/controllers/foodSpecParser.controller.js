@@ -5,6 +5,7 @@ var formidable = require('formidable'),
 
 module.exports.foodSpecParse = function(req, res){
   console.log('Received your file!');
+  console.log('Hello, ', res.body.email);
 
   var form = new formidable.IncomingForm();
   var path = '';

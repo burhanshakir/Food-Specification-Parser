@@ -1,4 +1,4 @@
-angular.module('foodspec',['ngRoute'])
+angular.module('foodspec',['ngRoute','ngFileUpload'])
 .config(config);
 
 

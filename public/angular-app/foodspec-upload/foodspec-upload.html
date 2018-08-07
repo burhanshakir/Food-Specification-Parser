@@ -1,1 +1,24 @@
-<h1>Food Specification Parser</h1>
+
+<div class="container">
+
+    <h1>Upload your food item specification file here</h1>
+
+    <form class="file-upload-form" name="vm.pdfUploadForm" ng-submit="vm.parsePdf()">
+
+        <div class="form-group">
+
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ng-model="vm.email">
+
+
+            <label for="exampleFormControlFile1">Example file input: yourFoodItem.pdf</label>
+
+
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" ngf-select ng-model="pdfFile">
+
+            <button type="submit" class="btn btn-primary" ng-click="vm.parsePdf(pdfFile)">Submit</button>
+        </div>
+
+    </form>
+
+</div>
