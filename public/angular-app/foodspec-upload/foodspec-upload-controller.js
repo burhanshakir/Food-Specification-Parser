@@ -50,6 +50,13 @@ function FoodSpecUploadController(foodspecDataFactory,Upload,$timeout,$route,$wi
 
         if(response.status == '200'){
           console.log("Successfully parsed your data!");
+
+          // Saving the data to factory functions so as to use it in other controllers
+          foodspecDataFactory.setFoodspecParseData(response.data)
+
+          // Show form for data parsed
+          $window.location.href = '/#/foodspecSave';
+
         }
       });
     })

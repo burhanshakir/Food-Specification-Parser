@@ -10,13 +10,17 @@ function config($routeProvider, $locationProvider){
         controller: FoodSpecUploadController,
         controllerAs : 'vm'
 
+      })
+      .when('/foodspecSave',{
+        templateUrl : 'angular-app/foodspec-save/foodspec-save.html',
+        controller: FoodSpecSaveController,
+        controllerAs : 'vm'
+
       });
-      // .when('/hotel/:id',{
-      //   templateUrl : 'angular-app/hotel-display/hotel.html',
-      //   controller: HotelController,
-      //   controllerAs : 'vm'
-      //
-      // });
 
       $locationProvider.hashPrefix('');
+      // $locationProvider.html5Mode({
+      //   enabled: true,
+      //   requireBase: false
+      // });
 }

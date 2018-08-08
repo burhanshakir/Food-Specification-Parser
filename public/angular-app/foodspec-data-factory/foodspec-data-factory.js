@@ -1,13 +1,22 @@
 angular.module('foodspec').factory('foodspecDataFactory',foodspecDataFactory);
 
 function foodspecDataFactory($http){
+
+  // Storing parsed data of pdf
+  var pasrsedData = null;
+
   return{
-    foodspecParseData : foodspecParseData
+    setFoodspecParseData : setFoodspecParseData,
+    getFoodspecParseData : getFoodspecParseData
   };
 
 
-  function foodspecParseData(postData){
-    return $http.post("/api/foodspec-parse").then(complete).catch(failed);
+  function setFoodspecParseData(data){
+    pasrsedData = data;
+  }
+
+  function getFoodspecParseData(){
+    return pasrsedData;
   }
 
   function complete(response){
