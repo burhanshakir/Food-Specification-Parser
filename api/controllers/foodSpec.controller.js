@@ -54,14 +54,14 @@ module.exports.foodSpecUpload = function(req, res)
 
           console.log(result.rows[0]);
         }
-        pool.end()
+        // pool.end()
       })
 }
 
 
 module.exports.foodSpecGetAll = function(req, res){
 
-  console.log("Sending you names of foods wee have!");
+  console.log("Sending you names of foods we have!");
 
   const selectQuery = 'SELECT id, name from food_items';
 

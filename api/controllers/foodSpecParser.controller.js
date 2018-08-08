@@ -5,25 +5,44 @@ var formidable = require('formidable'),
 
 module.exports.foodSpecParse = function(req, res){
   console.log('Received your file!');
-  console.log('Hello, ', res.body.email);
 
   var form = new formidable.IncomingForm();
   var path = '';
   form.keepExtensions = true; // To save the file as pdf/jpg
 
+
+  form.on('file', (field, file) => {
+    // Do something with the file
+    // e.g. save it to the database
+    // you can access it using file.path
+
+  });
+
   // Receiving form data and storing it
   form.parse(req, function(err, fields, files) {
 
-      path = files.file.path;
-      var fileType = files.file.type;
+      if(!err){
+
+          console.log('Parsing the form!');
+          path = files.file.path;
+          console.log('File path:', path);
+          var fileType = files.file.type;
 
 
-      if(fileType === 'application/pdf'){
-        console.log('It is a PDF!');
-        getDataFromPdf(path, res);
-      }
-      return
-    });
+          if(fileType === 'application/pdf'){
+            console.log('It is a PDF!');
+            getDataFromPdf(path, res);
+          }
+          return
+
+
+        }
+
+        else {
+          console.log("Error parsing form:", err);
+        }
+
+      });
 }
 
 var getDataFromPdf = function(path, response){

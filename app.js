@@ -21,8 +21,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
 
 // Enable parsing of posted forms
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false, type:'application/x-www-form-urlencoded' }));
+
+
+// app.use(bodyParser.json({limit: '50mb'}));
+// app.use(bodyParser.urlencoded({limit: '50mb', extended: true,  parameterLimit: 1000000}));
+
 
 // Add some routing whenever a url with having /api
 app.use('/api', routes);
