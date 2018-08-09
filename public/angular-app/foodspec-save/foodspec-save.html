@@ -92,11 +92,13 @@
       <input type="text" class="form-control" id="sodium" placeholder="Enter Sodium" ng-model="vm.foodItem.sodium">
     </div>
 
+    <div class="form-group row">
+      <button type="submit" class="col-2 btn btn-primary" ng-click="vm.saveData(vm.foodItem)">Submit </button>
 
+      <button type="submit" class="col-2 btn btn-primary" ng-click="vm.viewProducts()">View Products</button>
 
-
-
-    <button type="submit" class="btn btn-primary" ng-click="vm.saveData(vm.foodItem)">Submit</button>
+    </div>
 
   </form>
-</di>
+</div>
+</div>

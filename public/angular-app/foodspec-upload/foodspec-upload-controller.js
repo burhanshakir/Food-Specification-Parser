@@ -61,4 +61,14 @@ function FoodSpecUploadController(foodspecDataFactory,Upload,$timeout,$route,$wi
       });
     })
   }
+
+
+
+
+  vm.viewProducts = function(){
+    console.log("View Products!");
+
+    // Show form for data parsed
+    $window.location.href = '/#/foodspecView';
+  }
 }

@@ -8,7 +8,9 @@ function foodspecDataFactory($http){
   return{
     setFoodspecParseData : setFoodspecParseData,
     getFoodspecParseData : getFoodspecParseData,
-    foodSpecSave: foodSpecSave
+    foodSpecSave: foodSpecSave,
+    getFoodItems: getFoodItems,
+    getFoodItemById: getFoodItemById
   };
 
 
@@ -25,6 +27,15 @@ function foodspecDataFactory($http){
     return $http.post('/api/foodspec', foodItem).
       then(complete).catch(failed);
 
+  }
+
+
+  function getFoodItems(){
+    return $http.get("/api/foodspec").then(complete).catch(failed);
+  }
+
+  function getFoodItemById(id){
+    return $http.get("/api/foodspec/" + id).then(complete).catch(failed);
   }
 
   function complete(response){

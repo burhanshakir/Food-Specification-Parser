@@ -16,6 +16,12 @@ function config($routeProvider, $locationProvider){
         controller: FoodSpecSaveController,
         controllerAs : 'vm'
 
+      })
+      .when('/foodspecView',{
+        templateUrl : 'angular-app/foodspec-view/foodspec-view.html',
+        controller: FoodSpecViewController,
+        controllerAs : 'vm'
+
       });
 
       $locationProvider.hashPrefix('');

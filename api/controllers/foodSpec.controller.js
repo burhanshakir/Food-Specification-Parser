@@ -52,7 +52,7 @@ module.exports.foodSpecUpload = function(req, res)
           res.status(200)
                   .json({"message" : "Received and Stored Data"});
 
-          console.log(result.rows[0]);
+          console.log("Received and stored the data: ",result.rows[0]);
         }
         // pool.end()
       })
