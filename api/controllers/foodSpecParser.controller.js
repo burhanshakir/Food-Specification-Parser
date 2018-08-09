@@ -99,8 +99,8 @@ var getDataFromPdf = function(path, response){
 
 var getSpecifications = function(texts){
 
-    var productNameKey, productName, productDesc, productWeight, productIngredients,temperature, energy, fat, saturates, monounsaturates, carbohydrates, trans, sugars, polyols, starch, fibre, protein, salt, sodium = "";
-
+    var productNameKey, productName, productDesc, productWeight, productIngredients,temperature, energy, fat, saturates, monounsaturates, carbohydrates, trans, sugars, polyols, starch, fibre, protein, salt, sodium;
+    productNameKey = productName = productDesc = productWeight = productIngredients =temperature = energy = fat = saturates = monounsaturates = carbohydrates = trans = sugars = polyols = starch = fibre = protein = salt = sodium = "";
 
     // Finding the key name to extract the product name
     if(texts.indexOf("product name") != -1){
@@ -213,5 +213,5 @@ var getSpecifications = function(texts){
 
     }
 
-    return '{ "ProductName":"' + productName +  '", "ProductDesc":"'+ productDesc + '" }'
+    return '{ "name":"' + productName +  '", "description":"'+ productDesc + '", "weight":"'+ productWeight + '", "temperature":"'+ temperature + '", "energy":"'+ energy + '", "fat":"'+ fat + '", "saturates":"'+ saturates + '", "monounsaturates":"'+ monounsaturates + '", "trans_fat":"'+ trans + '", "carbohydrates":"'+ carbohydrates + '", "sugars":"'+ sugars + '", "polyols":"'+ polyols + '", "starch":"'+ starch + '", "fibre":"'+ fibre + '", "protein":"'+ protein + '", "salt":"'+ salt + '", "sodium":"'+ sodium + '" }'
 }

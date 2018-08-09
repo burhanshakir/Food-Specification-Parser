@@ -7,7 +7,8 @@ function foodspecDataFactory($http){
 
   return{
     setFoodspecParseData : setFoodspecParseData,
-    getFoodspecParseData : getFoodspecParseData
+    getFoodspecParseData : getFoodspecParseData,
+    foodSpecSave: foodSpecSave
   };
 
 
@@ -17,6 +18,13 @@ function foodspecDataFactory($http){
 
   function getFoodspecParseData(){
     return pasrsedData;
+  }
+
+  function foodSpecSave(foodItem){
+
+    return $http.post('/api/foodspec', foodItem).
+      then(complete).catch(failed);
+
   }
 
   function complete(response){

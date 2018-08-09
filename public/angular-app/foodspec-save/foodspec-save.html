@@ -7,91 +7,96 @@
 
     <div class="form-group">
       <label for="name">Product Name</label>
-      <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name" ng-model="vm.productName">
+      <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name" ng-model="vm.foodItem.name">
       <small id="nameHelp" class="form-text text-muted">Name of the product.</small>
     </div>
 
     <div class="form-group">
       <label for="description">Product Description</label>
-      <input type="text" class="form-control" id="description" placeholder="Enter Description">
+      <input type="text" class="form-control" id="description" placeholder="Enter Description" ng-model="vm.foodItem.description">
     </div>
 
 
     <div class="form-group">
       <label for="weight">Product Weight</label>
-      <input type="text" class="form-control" id="weight" placeholder="Enter Weight">
+      <input type="text" class="form-control" id="weight" placeholder="Enter Weight" ng-model="vm.foodItem.weight">
     </div>
 
     <div class="form-group">
       <label for="temperature">Temperature</label>
-      <input type="text" class="form-control" id="temperature" placeholder="Enter temperature">
+      <input type="text" class="form-control" id="temperature" placeholder="Enter temperature" ng-model="vm.foodItem.temperature">
     </div>
 
     <div class="form-group">
       <label for="energy">Energy</label>
-      <input type="text" class="form-control" id="energy" placeholder="Product Energy">
+      <input type="text" class="form-control" id="energy" placeholder="Product Energy" ng-model="vm.foodItem.energy">
     </div>
 
     <div class="form-group">
       <label for="fat">Fats</label>
-      <input type="text" class="form-control" id="fat" placeholder="Enter Fat">
+      <input type="text" class="form-control" id="fat" placeholder="Enter Fat" ng-model="vm.foodItem.fat">
     </div>
 
     <div class="form-group">
       <label for="saturates">Saturates</label>
-      <input type="text" class="form-control" id="saturates" placeholder="Enter Saturates">
+      <input type="text" class="form-control" id="saturates" placeholder="Enter Saturates" ng-model="vm.foodItem.saturates">
     </div>
 
     <div class="form-group">
       <label for="monounsaturates">Monounsaturates</label>
-      <input type="text" class="form-control" id="monounsaturates" placeholder="Enter monounsaturates">
+      <input type="text" class="form-control" id="monounsaturates" placeholder="Enter monounsaturates" ng-model="vm.foodItem.monounsaturates">
     </div>
 
     <div class="form-group">
       <label for="trans-fat">Trans Fats</label>
-      <input type="text" class="form-control" id="trans-fats" placeholder="Enter Trans Fats">
+      <input type="text" class="form-control" id="trans-fats" placeholder="Enter Trans Fats" ng-model="vm.foodItem.trans_fat">
     </div>
 
     <div class="form-group">
       <label for="carbs">Carbohydrates</label>
-      <input type="text" class="form-control" id="carbs" placeholder="Enter Carbohydrates">
+      <input type="text" class="form-control" id="carbs" placeholder="Enter Carbohydrates" ng-model="vm.foodItem.carbohydrates">
     </div>
 
     <div class="form-group">
       <label for="sugars">Sugars</label>
-      <input type="text" class="form-control" id="sugars" placeholder="Enter Sugars">
+      <input type="text" class="form-control" id="sugars" placeholder="Enter Sugars" ng-model="vm.foodItem.sugars">
     </div>
 
     <div class="form-group">
       <label for="polyols">Polyols</label>
-      <input type="text" class="form-control" id="polyols" placeholder="Enter Polyols">
+      <input type="text" class="form-control" id="polyols" placeholder="Enter Polyols" ng-model="vm.foodItem.polyols">
     </div>
 
     <div class="form-group">
       <label for="starch">Starch</label>
-      <input type="text" class="form-control" id="starch" placeholder="Enter Starch">
+      <input type="text" class="form-control" id="starch" placeholder="Enter Starch" ng-model="vm.foodItem.starch">
     </div>
 
     <div class="form-group">
       <label for="fibre">Fibre</label>
-      <input type="text" class="form-control" id="fibre" placeholder="Enter Fibre">
+      <input type="text" class="form-control" id="fibre" placeholder="Enter Fibre" ng-model="vm.foodItem.fibre">
+    </div>
+
+    <div class="form-group">
+      <label for="protein">Protein</label>
+      <input type="text" class="form-control" id="protein" placeholder="Enter Protein" ng-model="vm.foodItem.protein">
     </div>
 
     <div class="form-group">
       <label for="salt">Salt</label>
-      <input type="text" class="form-control" id="salt" placeholder="Enter Salt">
+      <input type="text" class="form-control" id="salt" placeholder="Enter Salt" ng-model="vm.foodItem.salt">
     </div>
 
     <div class="form-group">
       <label for="sodium">Sodium</label>
-      <input type="text" class="form-control" id="sodium" placeholder="Enter Sodium">
+      <input type="text" class="form-control" id="sodium" placeholder="Enter Sodium" ng-model="vm.foodItem.sodium">
     </div>
 
 
 
 
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" ng-click="vm.saveData(vm.foodItem)">Submit</button>
 
   </form>
 </di>
