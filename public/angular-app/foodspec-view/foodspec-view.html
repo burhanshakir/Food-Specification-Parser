@@ -9,8 +9,6 @@
 
 
       <select name="selectFoodItems" id="selectFoodItems" ng-options="foodItem.name for foodItem in vm.result.food_items track by foodItem.id" ng-model="vm.selected" ng-change="vm.getFoodItem(vm.selected.id)">
-        <option value="-1">Please select..</option>
-
       </select>
 
     </div>
